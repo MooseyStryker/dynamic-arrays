@@ -11,6 +11,19 @@ class DynamicArray {
   }
 
   push(val) {
+    if (this.length === this.capacity) {
+
+      let doubleCap = this.capacity * 2
+      let newData = new Array(doubleCap)
+
+      for (let i = 0; i < this.length; i++){
+        newData[i] = this.data[i]
+      }
+
+      this.data = newData
+      this.capacity = doubleCap
+    }
+
     this.data[this.length] = val
     this.length++
   }
@@ -27,10 +40,31 @@ class DynamicArray {
   }
 
   shift() {
-
+    if (this.length === 0){
+      return undefined;
+    }
+    let firstItem = this.data[0];
+    for(let i = 0; i < this.length - 1; i++) {
+      this.data[i] = this.data[i + 1]
+    }
+    this.length--
+    return firstItem
   }
 
   unshift(val) {
+    if (this.length === this.capacity) {
+
+      let doubleCap = this.capacity * 2
+      let newData = new Array(doubleCap)
+
+      for (let i = 0; i < this.length; i++){
+        newData[i] = this.data[i]
+      }
+
+      this.data = newData
+      this.capacity = doubleCap
+    }
+    
     for (let i = this.length; i > 0; i--) {
       this.data[i] = this.data[i - 1]
     }
@@ -41,15 +75,26 @@ class DynamicArray {
   }
 
   indexOf(val) {
-
-    // Your code here
+    for (let i = 0; i < this.length; i++){
+    if(this.data[i] === val) {
+      return i;
+     }
+    }
+    return -1
   }
 
   resize() {
+      let doubleCap = this.capacity * 2
+      let newData = new Array(doubleCap)
 
-    // Your code here
+      for (let i = 0; i < this.length; i++){
+        newData[i] = this.data[i]
+      }
+
+      this.data = newData
+      this.capacity = doubleCap
+
   }
-
 }
 
 
