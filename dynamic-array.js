@@ -2,43 +2,48 @@ class DynamicArray {
 
   constructor(defaultSize = 4) {
 
-    // Your code here 
+    // Your code here
   }
 
   read(index) {
 
-    // Your code here 
+    // Your code here
   }
 
   push(val) {
 
-    // Your code here 
+    // Your code here
   }
 
 
   pop() {
 
-    // Your code here 
+    // Your code here
   }
 
-  shift() {
+  shift(val) {
+    for (let i = this.length; i > 0; i--) {
+      this.data[i] = this.data[i - 1]
+    }
+    this.data[0] = val
+    this.length++
 
-    // Your code here 
+    return this.length
   }
 
   unshift(val) {
 
-    // Your code here 
+    // Your code here
   }
 
   indexOf(val) {
 
-    // Your code here 
+    // Your code here
   }
 
   resize() {
 
-    // Your code here 
+    // Your code here
   }
 
 }
