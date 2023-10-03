@@ -1,27 +1,36 @@
 class DynamicArray {
 
   constructor(defaultSize = 4) {
-
-    // Your code here
+    this.capacity = defaultSize
+    this.length = 0
+    this.data = new Array(this.capacity)
   }
 
   read(index) {
-
-    // Your code here
+    return this.data[index]
   }
 
   push(val) {
-
-    // Your code here
+    this.data[this.length] = val
+    this.length++
   }
 
 
   pop() {
-
-    // Your code here
+    if(this.length === 0) {
+      return undefined;
+    }
+    const lastItem = this.data[this.length - 1]
+    this.length--
+    // console.log("This one is the last item: ",lastItem)
+    return lastItem
   }
 
-  shift(val) {
+  shift() {
+
+  }
+
+  unshift(val) {
     for (let i = this.length; i > 0; i--) {
       this.data[i] = this.data[i - 1]
     }
@@ -29,11 +38,6 @@ class DynamicArray {
     this.length++
 
     return this.length
-  }
-
-  unshift(val) {
-
-    // Your code here
   }
 
   indexOf(val) {
